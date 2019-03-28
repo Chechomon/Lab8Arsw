@@ -19,7 +19,10 @@ import org.springframework.stereotype.Component;
 import edu.eci.models.Car;
 import edu.eci.models.User;
 import edu.eci.persistences.repositories.ICarRepository;
-
+/**
+ *
+ * @author Sergio
+ */
 @Component
 @Qualifier("CarPostgresRepository")
 public class CarPostgresRepository implements ICarRepository {

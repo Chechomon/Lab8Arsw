@@ -14,7 +14,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ *
+ * @author Sergio
+ */
 @Component
 public class UserServices implements IUserServices {
 
