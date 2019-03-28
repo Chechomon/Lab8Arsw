@@ -41,12 +41,23 @@ public class UserController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> updateUser(@RequestBody User user){
-        throw new NotImplementedException();
+        try {
+        	userServices.update(user);
+	        return new ResponseEntity<>(userServices.get(user.getId()),HttpStatus.CREATED);
+        }catch(Exception e) {
+        	return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+        }
     }
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> deleteUser(@RequestBody UUID id){
-        throw new NotImplementedException();
+    public ResponseEntity<?> deleteUser(@RequestBody String id){
+    	 try {
+    		System.out.println(id+"AQUI ESTOY");
+         	userServices.delete(UUID.fromString(id));
+ 	        return new ResponseEntity<>("Se ha eliminado correctamente",HttpStatus.ACCEPTED);
+         }catch(Exception e) {
+         	return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+         }
     }
 }

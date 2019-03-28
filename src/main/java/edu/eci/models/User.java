@@ -3,7 +3,8 @@ package edu.eci.models;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class User implements Serializable{
+public class User implements Serializable {
+
     private String name;
     private UUID id;
 
@@ -30,6 +31,5 @@ public class User implements Serializable{
     public void setId(UUID id) {
         this.id = id;
     }
-
 
 }

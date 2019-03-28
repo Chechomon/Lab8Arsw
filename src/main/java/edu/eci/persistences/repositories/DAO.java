@@ -2,6 +2,7 @@ package edu.eci.persistences.repositories;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 public interface DAO<T extends Serializable, PK> {
     public List<T> findAll();

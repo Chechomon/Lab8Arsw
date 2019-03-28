@@ -75,4 +75,9 @@ public class UserMemoryRepository implements IUserRepository{
                 .filter(u -> !u.getId().equals(id))
                 .collect(toList());
     }
+
+    @Override
+    public void delete(UUID user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
