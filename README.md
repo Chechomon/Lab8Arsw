@@ -2,7 +2,7 @@
 
 ## Prepare the app
 
-
+![](localhost.PNG)
 
 * The application offers a REST service in which we can perform operations such as get, post, push and delete on the user and car entities.
 
