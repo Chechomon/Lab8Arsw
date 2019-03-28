@@ -61,23 +61,19 @@ public class UserMemoryRepository implements IUserRepository{
     }
 
     @Override
-    public void delete(User o) {
+    public void delete(UUID o) {
         UserMemoryRepository.usersContainer = UserMemoryRepository.getContainer()
                 .stream()
-                .filter(u -> !u.getId().equals(o.getId()))
+                .filter(u -> !u.getId().equals(o))
                 .collect(toList());
     }
 
     @Override
-    public void remove(Long id) {
+    public void remove(UUID id) {
         UserMemoryRepository.usersContainer = UserMemoryRepository.getContainer()
                 .stream()
                 .filter(u -> !u.getId().equals(id))
                 .collect(toList());
     }
 
-    @Override
-    public void delete(UUID user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

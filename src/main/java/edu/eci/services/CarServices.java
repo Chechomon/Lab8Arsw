@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.services;
 
 import java.util.List;
@@ -16,53 +11,49 @@ import edu.eci.models.Car;
 import edu.eci.persistences.repositories.ICarRepository;
 import edu.eci.persistences.repositories.IUserRepository;
 import edu.eci.services.contracts.ICarServices;
-/**
- *
- * @author Sergio
- */
+
 @Component
 public class CarServices implements ICarServices {
+	
+	 @Autowired
+	 @Qualifier("CarPostgresRepository")
+	 private ICarRepository carRepository;
 
-    @Autowired
-    @Qualifier("CarPostgresRepository")
-    private ICarRepository carRepository;
+	@Override
+	public List<Car> list() {
+		return carRepository.findAll();		
+	}
 
-    @Override
-    public List<Car> list() {
-        return carRepository.findAll();
-    }
-
-    @Override
-    public Car create(Car car) {
-        if (null == car.getLicencePlate()) {
+	@Override
+	public Car create(Car car) {
+		if(null == car.getLicencePlate())
             throw new RuntimeException("Id invalid");
-        } else if (carRepository.find(car.getLicencePlate()) != null) {
+        else if(carRepository.find(car.getLicencePlate()) != null)
             throw new RuntimeException("The car exists");
-        } else {
+        else
             carRepository.save(car);
-        }
         return car;
-    }
+	}
 
-    @Override
-    public Car getByLicence(String id) {
-        return carRepository.find(id);
-    }
+	@Override
+	public Car getByLicence(String id) {
+		return carRepository.find(id);
+	}
 
-    @Override
-    public Car get(String name) {
-        return carRepository.find(name);
-    }
+	@Override
+	public Car get(String name) {
+		return carRepository.find(name);
+	}
 
-    @Override
-    public void delete(String car) {
-        carRepository.delete(car);
+	@Override
+	public void delete(String car) {
+		carRepository.delete(car);
+		
+	}
 
-    }
-
-    @Override
-    public void update(Car car) {
-        carRepository.update(car);
-    }
+	@Override
+	public void update(Car car) {
+		carRepository.update(car);
+	}
 
 }

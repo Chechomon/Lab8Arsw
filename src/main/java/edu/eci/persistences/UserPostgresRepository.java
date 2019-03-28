@@ -115,6 +115,7 @@ public class UserPostgresRepository implements IUserRepository {
         }
     }
 
+    @Override
     public void remove(UUID id) {
     	String sentece="delete from users where id='"+id+"';";
     	try(Connection connection = db.getDataSource().getConnection()){
@@ -125,16 +126,6 @@ public class UserPostgresRepository implements IUserRepository {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public void delete(User o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void remove(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
