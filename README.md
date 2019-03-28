@@ -1,4 +1,7 @@
-# Lab8Arsw
+# Laboratorio#8 Arsw
+
+Nombre: 
+* Sergio Alejandro Peña Pinto
 
 ## Prepare the app
 
